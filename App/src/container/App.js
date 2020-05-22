@@ -3,6 +3,8 @@ import CardList from "../components/CardList";
 import Search from "../components/Search";
 import "./App.css";
 import Scrl from "../components/Scrl";
+import ErrorBoundry from "../components/ErrorBoundry";
+import Footer from "../components/Footer";
 
 class App extends Component {
   constructor() {
@@ -40,8 +42,11 @@ class App extends Component {
           <h1 className="f1">ROBOFRIENDS</h1>
           <Search searchChange={this.onSearchChange} />
           <Scrl>
-            <CardList robots={filteredRobots} />
+            <ErrorBoundry>
+              <CardList robots={filteredRobots} />
+            </ErrorBoundry>
           </Scrl>
+          <Footer />
         </div>
       );
     }
